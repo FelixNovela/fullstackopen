@@ -23,6 +23,23 @@ const App = () => {
     const handlerBad = () => {
         setBad(bad + 1)
     }
+
+
+    const statistics = () => {
+        let total = good + neutral + bad
+        let average 
+        let positive
+        if(total === 0){
+            average = 0
+            positive = 0
+        }else{
+            average = (good * 1 + neutral * 0 + bad * (-1)) / total
+            positive = (good / total) * 100
+        }
+        
+        return {total: total, average: average, positive: positive}
+    }
+    const statisticsResult = statistics()
     return(
         <>
             <h2>give feedback</h2>
@@ -33,6 +50,9 @@ const App = () => {
             <p>good {good}</p>
             <p>neutral {neutral}</p>
             <p>bad {bad}</p>
+            <p>all {statisticsResult.total}</p>
+            <p>average {statisticsResult.average}</p>
+            <p>positive {statisticsResult.positive} %</p>
         </>
     )
 }
