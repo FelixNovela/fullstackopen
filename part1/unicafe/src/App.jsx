@@ -10,6 +10,15 @@ const Button = ({text, onClick}) => {
     )
 }
 const Statistics = (props) => {
+    if(props.statistics.total === 0){
+        return(
+            <>
+                <h2>statistics</h2>
+                <p>No feedback given</p>
+            </>
+        )
+    }
+   
     return(
         <>
             <h2>statistics</h2>
