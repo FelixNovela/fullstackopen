@@ -37,13 +37,28 @@ const App = () => {
     copy[anecdoteVoted] += 1
     setVotes(copy)
   }
+  const mostVoted = () => {
+    let mostVotedAnecdote = votes[0]
+    let indexMostVotedAnecdote = 0
+    for(let i = 1; i < votes.length; i++){
+      if(votes[i] > mostVotedAnecdote){
+        mostVotedAnecdote = votes[i]
+        indexMostVotedAnecdote = i
+      }
+    }
+    return {mostVotedAnecdote:mostVotedAnecdote, indexMostVotedAnecdote:indexMostVotedAnecdote}
+  }
+  let most = mostVoted()
   return (
     <div>
-     
+      <h2>Anecdote of the day</h2>
       {anecdotes[selected]} <br />
       has {votes[selected]} votes<br />
-       <Button text="next anecdote" onClick={handlerRandomAnecdotes}/>
-       <Button text="vote" onClick={()=>handleVotes(selected)}/>
+      <Button text="next anecdote" onClick={handlerRandomAnecdotes}/>
+      <Button text="vote" onClick={()=>handleVotes(selected)}/>
+      <h2>Anecdote with most votes</h2>
+      <p>{anecdotes[most.indexMostVotedAnecdote]}</p>
+      <p>{most.mostVotedAnecdote}</p>
     </div>
   )
 }
