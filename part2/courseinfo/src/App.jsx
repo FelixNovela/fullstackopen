@@ -2,21 +2,33 @@ const Header = ({ header }) => <h1>{header}</h1>
 
 const Content = ({ parts }) => (
   <ul>
-    {parts.map((partItem)=> <Part key={partItem.id} part={partItem} />)}
+    {parts.map((partItem) => <Part key={partItem.id} part={partItem} />)}
   </ul>
-  
+
 )
 
-const Part = ({part}) => (
+const Part = ({ part }) => (
   <li>
     {part.name} {part.exercises}
   </li>
 )
+const Total = ({ parts }) => {
+  let sum = 0
+  for (let i = 0; i < parts.length; i++) {
+    sum = sum + parts[i].exercises
+  }
 
+  return (
+    <div>
+      <b> total of {sum} exercises</b>
+    </div>
+  )
+}
 const Course = ({ course }) => (
   <div>
     <Header header={course.name} />
     <Content parts={course.parts} />
+    <Total parts={course.parts} />
   </div>
 )
 
