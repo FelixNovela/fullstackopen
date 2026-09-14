@@ -13,11 +13,7 @@ const Part = ({ part }) => (
   </li>
 )
 const Total = ({ parts }) => {
-  let sum = 0
-  for (let i = 0; i < parts.length; i++) {
-    sum = sum + parts[i].exercises
-  }
-
+  let sum = parts.reduce((s,p) => s + p.exercises, 0)
   return (
     <div>
       <b> total of {sum} exercises</b>
