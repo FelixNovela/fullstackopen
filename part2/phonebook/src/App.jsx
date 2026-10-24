@@ -29,7 +29,14 @@ const App = () => {
     event.preventDefault()
     let personExist = persons.find(person => person.name === newName)
     if (!personExist) {
-      setPersons(persons.concat({ id: String(persons.length + 1), name: newName, number: newNUmber }))
+      const newPerson = {
+        name: newName, number: newNUmber
+      }
+      const request = axios.post('http://localhost:3001/persons', newPerson)
+      request.then(response => {
+        setPersons(persons.concat(response.data))
+
+      })
       setNewName('')
       setNewNumber('')
     } else {
