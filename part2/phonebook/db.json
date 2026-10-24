@@ -24,6 +24,16 @@
       "name": "Teste",
       "number": "873984638",
       "id": "IoSDb8A-zl0"
+    },
+    {
+      "name": "Test",
+      "number": "39-23-6423199",
+      "id": "PTiXXVkXFFI"
+    },
+    {
+      "name": "Test 2",
+      "number": "040-123909",
+      "id": "vkDW63mwtXY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
