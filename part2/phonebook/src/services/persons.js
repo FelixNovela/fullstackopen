@@ -7,12 +7,20 @@ const getAllPersonNumber = () => {
     })
 }
 
-const addPersonNumber = (newPersonNumber) => {
+const addPersonNumber = newPersonNumber => {
     const request = axios.post(baseUrl, newPersonNumber)
     return request.then(response => {
         return response.data
     })
 }
 
+const deletePersonNumber = (personId) => {
 
-export default {getAllPersonNumber, addPersonNumber}
+    const request = axios.delete(`${baseUrl}/${personId}`)
+    return request.then(response => {
+        return response.data.id
+    })
+
+}
+
+export default { getAllPersonNumber, addPersonNumber, deletePersonNumber }
