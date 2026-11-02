@@ -7,6 +7,13 @@ const getAllPersonNumber = () => {
     })
 }
 
+
+const updatePersonNumber = (id,personNumber) => {
+    const request = axios.put(`${baseUrl}/${id}`, personNumber)
+    return request.then(response => {
+        return response.data
+    })
+}
 const addPersonNumber = newPersonNumber => {
     const request = axios.post(baseUrl, newPersonNumber)
     return request.then(response => {
@@ -23,4 +30,4 @@ const deletePersonNumber = (personId) => {
 
 }
 
-export default { getAllPersonNumber, addPersonNumber, deletePersonNumber }
+export default { getAllPersonNumber, addPersonNumber,updatePersonNumber, deletePersonNumber }

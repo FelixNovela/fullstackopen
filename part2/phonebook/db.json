@@ -7,18 +7,28 @@
     },
     {
       "name": "Ada Lovelace",
-      "number": "39-44-5323523",
+      "number": "777777777",
       "id": "2"
     },
     {
       "name": "Dan Abramov",
-      "number": "12-43-234345",
+      "number": "9999999",
       "id": "3"
     },
     {
       "name": "Mary Poppendieck",
-      "number": "39-23-6423122",
+      "number": "88888888",
       "id": "4"
+    },
+    {
+      "name": "Ada Lovelace H",
+      "number": "88888",
+      "id": "G2apLMRchic"
+    },
+    {
+      "name": "Test",
+      "number": "8888",
+      "id": "8W_9VQ7JC3w"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
