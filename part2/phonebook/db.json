@@ -7,7 +7,7 @@
     },
     {
       "name": "Ada Lovelace",
-      "number": "777777777",
+      "number": "02938829",
       "id": "2"
     },
     {
@@ -26,9 +26,34 @@
       "id": "G2apLMRchic"
     },
     {
-      "name": "Test",
-      "number": "8888",
-      "id": "8W_9VQ7JC3w"
+      "name": "Gon",
+      "number": "99382892",
+      "id": "X9zDoziadEo"
+    },
+    {
+      "name": "Naruto",
+      "number": "937392383",
+      "id": "q6zQqWfvI_A"
+    },
+    {
+      "name": "Loki",
+      "number": "2933792",
+      "id": "SSq4wIgN0g8"
+    },
+    {
+      "name": "Levi",
+      "number": "37362781",
+      "id": "kXXwYpzej0A"
+    },
+    {
+      "name": "Eren",
+      "number": "838282",
+      "id": "QxC559GYyEU"
+    },
+    {
+      "name": "Mikasa",
+      "number": "200010992",
+      "id": "a2r6Sz5usuk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
