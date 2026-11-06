@@ -10,7 +10,8 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNUmber, setNewNumber] = useState('')
   const [filterPerson, setfilterPerson] = useState("")
-  const [confirmedMessage, setConfirmedMessage] = useState(null)
+  const [notifcationMessage, setNotificationMessage] = useState(null)
+  const [noticationClassNameStyle, setnoticationClassNameStyle] = useState(null)
 
   useEffect(() => {
     servicePersonNumber.getAllPersonNumber()
@@ -30,6 +31,7 @@ const App = () => {
   const handlePerson = (event) => {
     event.preventDefault()
     let personExist = persons.find(person => person.name === newName)
+    setnoticationClassNameStyle("confirmedMessage")
     if (!personExist) {
       const newPersonNumber = {
         name: newName, number: newNUmber
@@ -37,11 +39,12 @@ const App = () => {
       servicePersonNumber.addPersonNumber(newPersonNumber)
         .then(addedPersonNumber => {
           setPersons(persons.concat(addedPersonNumber))
-          setConfirmedMessage(`Added ${addedPersonNumber.name}`)
+          setNotificationMessage(`Added ${addedPersonNumber.name}`)
           setTimeout(() => {
-            setConfirmedMessage(null)
+            setNotificationMessage(null)
           }, 5000)
         })
+
       setNewName('')
       setNewNumber('')
     } else {
@@ -54,11 +57,20 @@ const App = () => {
           .then(addedPersonNumber => {
             setPersons(persons.map(p => p.id === addedPersonNumber.id ? addedPersonNumber : p))
 
-            setConfirmedMessage(`Updated ${addedPersonNumber.name}`)
+            setNotificationMessage(`Updated ${addedPersonNumber.name}`)
             setTimeout(() => {
-              setConfirmedMessage(null)
+              setNotificationMessage(null)
             }, 5000)
           })
+          .catch(() => {
+            setNotificationMessage(`Information of ${personExist.name} has already been removed from server`)
+            setnoticationClassNameStyle('errorMessage')
+            setPersons(persons.filter(p => p.id !== personExist.id))
+            setTimeout(() => {
+              setNotificationMessage(null)
+            }, 5000)
+          })
+
         setNewName('')
         setNewNumber('')
 
@@ -75,8 +87,20 @@ const App = () => {
       servicePersonNumber.deletePersonNumber(idP)
         .then((deletedPersonId) => {
           setPersons(persons.filter(p => p.id !== deletedPersonId))
+          setNotificationMessage(`${personNameDelete.name} removed from server`)
+          setnoticationClassNameStyle('confirmedMessage')
+          setTimeout(() => {
+            setNotificationMessage(null)
+          }, 5000)
         })
-        .catch(() => console.log('Error'))
+        .catch(() => {
+          setNotificationMessage(`Information of ${personNameDelete.name} has already been removed from server`)
+          setnoticationClassNameStyle('errorMessage')
+          setPersons(persons.filter(p => p.id !== idP))
+          setTimeout(() => {
+            setNotificationMessage(null)
+          }, 5000)
+        })
     }
   }
 
@@ -90,7 +114,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Notification message={confirmedMessage} />
+      <Notification message={notifcationMessage} errorMessageStyle={noticationClassNameStyle} />
       <Filter filterPersonValue={filterPerson} handleFilter={handleFilter} />
       <PersonForm onSubmit={handlePerson} onChangeName={handleNewName} onChangeNumber={handleNewNumber}
         valueName={newName} valueNumber={newNUmber} />

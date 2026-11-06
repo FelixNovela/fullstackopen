@@ -26,34 +26,24 @@
       "id": "G2apLMRchic"
     },
     {
-      "name": "Gon",
-      "number": "99382892",
-      "id": "X9zDoziadEo"
-    },
-    {
-      "name": "Naruto",
-      "number": "937392383",
-      "id": "q6zQqWfvI_A"
-    },
-    {
-      "name": "Loki",
-      "number": "2933792",
-      "id": "SSq4wIgN0g8"
-    },
-    {
-      "name": "Levi",
-      "number": "37362781",
-      "id": "kXXwYpzej0A"
+      "name": "Mikasa",
+      "number": "984989839",
+      "id": "_ZZm0HtUKfM"
     },
     {
       "name": "Eren",
-      "number": "838282",
-      "id": "QxC559GYyEU"
+      "number": "8238218192",
+      "id": "NHK13A63hak"
     },
     {
-      "name": "Mikasa",
-      "number": "200010992",
-      "id": "a2r6Sz5usuk"
+      "name": "Ichigo",
+      "number": "3282892819",
+      "id": "xcjTeBDaoyQ"
+    },
+    {
+      "name": "Kakarotto",
+      "number": "94083832",
+      "id": "P1_B8z2Ll-U"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
