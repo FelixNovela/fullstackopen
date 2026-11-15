@@ -1,4 +1,5 @@
-const Country = ({countryToDisplay}) => {
+import Weather from "./Weather";
+const Country = ({ countryToDisplay }) => {
     if (countryToDisplay) {
         let countryLanguages = "No languages listed"
         if (Object.keys(countryToDisplay.languages ?? {}).length > 0) {
@@ -19,7 +20,13 @@ const Country = ({countryToDisplay}) => {
                     }
                 </ul>
                 <img width={200} height={200} src={countryToDisplay.flags.png} alt={`Flag of ${countryToDisplay.name.common}`} />
-
+                {countryToDisplay.capital && countryToDisplay.capitalInfo?.latlng && (
+                    <Weather
+                        key={countryToDisplay.cca3}
+                        capital={countryToDisplay.capital[0]}
+                        latlng={countryToDisplay.capitalInfo.latlng}
+                    />
+                )}
             </div>
         )
     }
